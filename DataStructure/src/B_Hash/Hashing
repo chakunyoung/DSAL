@@ -1,0 +1,14 @@
+
+Key -> hash function -> bucket [index, entry]
+
+entry 는 key, value 로 저장되어 있는 형태
+
+
+충돌 발생시
+* 개방 주소법
+    bucket 빈 index 를 찾는다.
+* 연결 리스트
+    entry 를 연결리스트에 담는다.
+
+
+bucket index 를 찾을 때는 [hash] 를 이용하고, 찾는 key 가 맞는지 확인은 [equals] 를 이용한다.

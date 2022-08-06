@@ -3,6 +3,8 @@ package B_Recursion;
 /*
 
 *** base condition
+[종료조건이 반드시 필요]
+
 재귀호출 전
 재귀호출  ( 한 함수에서 재귀 호출이 여러번일 수 있다. )
 재귀호출 후

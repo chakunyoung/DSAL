@@ -1,6 +1,4 @@
-package LinkedList;
-
-import java.util.Queue;
+package A_LinkedList_Queue;
 
 public class MainLinkedList {
     public static void main(String[] args) {

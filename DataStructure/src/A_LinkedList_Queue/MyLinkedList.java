@@ -1,4 +1,4 @@
-package LinkedList;
+package A_LinkedList_Queue;
 
 public class MyLinkedList<E> implements MyQueue<E>{
 
@@ -120,6 +120,11 @@ public class MyLinkedList<E> implements MyQueue<E>{
     public E poll() {
         return remove(0);
     }
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
 
 
     // 출력용
