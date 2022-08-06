@@ -1,0 +1,58 @@
+start / mid / end
+
+mid 가 기준이됨. mid 와 찾는 수가 일치하면 종료.
+
+st / e / e / mid / e / e / e / en
+st / e /*en*/                          -> mid 보다 작은 경우 (mid - 1)
+            /    /*st*/ e / e / en     -> mid 보다 큰 경우   (mid + 1)
+
+mid 를 "포함하지 않은채로" st, en 를 조절함
+st와 en 위치가 역전되면, 배열안에 찾는 수가 없음. 종료
+
+while(s <= e){ // 종료
+    int mid = s + e / 2
+    if(findnumber == arr[mid])
+        찾음
+    if(findnumber > arr[mid])
+        s = mid+1
+    if(findnumber < arr[mid])
+        e = mid-1;
+}
+
+boj - 2805
+파라메트릭 search
+O(logN * N)  // 이분탐색 * 모든요소
+
+자른 총 합값으로 (기준)을 컨트롤한다.
+기준 (s + e / 2) => mid 를 컨트롤 // 기준은 반씩 낮추고, 반씩 올리기 때문에 (기준값은 크게 변한다.) (점점 좁힌다.)
+mid 가 기준 // ( s <----> e ) 안에 최적이 있다.
+
+public static long binarySearch(int need){
+        long s = 0;
+        long e = 2_000_000_000;         // 시작 end 를 졸라크게  // idx 가 아님 (자르는 시작 기준 값)
+        long returnHeight = 0;          // return 용도
+
+        while(s <= e){
+            long mid = (s + e) / 2;     // mid 가 (자르는 기준 값)으로 활용 될것임
+            long sum = 0;
+
+            for(int i = 0; i<arr.length; i++){ // 기준값을 활용, 짜투리 총합을 구한다.
+                int ele = arr[i];
+                if(ele > mid)
+                    sum += ele - mid;
+            }
+
+            if(sum >= need){           // 잘랐는데 많다. // 기준을 올린다. // 반틈을 올린다.
+                s = mid + 1;
+                returnHeight = mid;    // **** 된다면 그 값을 일단 저장(요구사항은 만족하기 때문에 기준값 update)
+            }
+            if(sum < need){            // 부족함 더 잘라야함 // 기준을 낮춘다. // 반틈을 낮춘다.
+                e = mid - 1;
+            }
+        }
+        return returnHeight;
+    }
+
+
+
+
