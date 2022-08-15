@@ -5,8 +5,10 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-// TODO : keyword : 서로소 집합(유니온 파인드), 우선순위 큐
+// TODO : 서로소 집합(유니온 파인드), 우선순위 큐
+
 // TODO : 먼저 우선순위큐에 edge 다 넣어둠
+// TODO : 가중치가 가장 적은 것을 사용한다. (사이클이 발생하지 않는 edge 를 연결한다.)
 
 public class Graph {
     final Queue<Edge> q; // 우선순위 큐(MinHeap) // 전체 엣지를 이곳에 넣음
@@ -15,7 +17,6 @@ public class Graph {
     public Graph() {
         q = new PriorityQueue<>();
         disjointSet = new int[6];
-
         for (int i = 0; i < disjointSet.length; i++)
             disjointSet[i] = i;
     }
@@ -24,17 +25,21 @@ public class Graph {
         q.add(new Edge(u, v, w));
     }
 
-    private int find(int x) { // TODO : 해당 원소의 "대표 원소값" 을 찾는다.
-        if (disjointSet[x] == x)   // 재귀함수 종료 조건
+
+    // TODO : 재귀적으로 해당 원소의 "대표 원소값" 을 찾는다.
+    private int find(int x) {
+        if (disjointSet[x] == x)
             return x;
         else
-            return disjointSet[x] = find(disjointSet[x]); // 마지막 값을 사용 // 전부다 0으로 만들어줌     // L-VALUE 가 RETURN
+            return disjointSet[x] = find(disjointSet[x]);
     }
 
-    private void union(int u, int v) { // 사이클 디텍팅 : 모든 간선을 union 하는 과정에서 만약 find 가 같다면 사이클 발생
+    // TODO 사이클 디텍팅 : 모든 간선을 union 하는 과정에서 만약 find 가 같다면 사이클 발생
+    private void union(int u, int v) {
         u = find(u); // 2 정점 -> 1
         v = find(v); // 5 정점 -> 4
-        // ""대표 원소""의 값을 바꿈
+
+        // TODO ""대표 원소""의 값을 바꿈
         if (u < v)
             disjointSet[v] = u;
         else

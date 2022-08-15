@@ -20,7 +20,8 @@ public class MergeSort_Simulation {
         System.out.println(Arrays.toString(arr));
     }
 
-    // divide 를 계속 하면서 스택을 쌓음 // merge 를 하면서 상위 merge로 이동
+    // divide 를 계속 하면서 스택을 쌓음
+    // merge 를 하면서 상위 merge 로 이동
     public static void divide(int s, int e){
         // todo: 원소가 두개 이상일 때 동작
         // s , e 는 <= 로 동작함
@@ -30,7 +31,7 @@ public class MergeSort_Simulation {
             divide(s, mid);  // mid 까지 포함
             divide(mid+1, e);
 
-            // 재귀재귀재귀 이후
+            // 재귀 재귀 재귀 .. 이후
             // 가장 작은단위인 2개가 됐을 때
             // 순서를 바꾸는 merge 를 함
             // 그다음 4개 일 때, 8 개일 때

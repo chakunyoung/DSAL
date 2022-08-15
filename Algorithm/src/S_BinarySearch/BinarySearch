@@ -1,3 +1,4 @@
+[이분 탐색]
 start / mid / end
 
 mid 가 기준이됨. mid 와 찾는 수가 일치하면 종료.
@@ -6,21 +7,15 @@ st / e / e / mid / e / e / e / en
 st / e /*en*/                          -> mid 보다 작은 경우 (mid - 1)
             /    /*st*/ e / e / en     -> mid 보다 큰 경우   (mid + 1)
 
-mid 를 "포함하지 않은채로" st, en 를 조절함
+mid 를 "포함하지 않은채로" st, en 범위를 조절함
 st와 en 위치가 역전되면, 배열안에 찾는 수가 없음. 종료
 
-while(s <= e){ // 종료
-    int mid = s + e / 2
-    if(findnumber == arr[mid])
-        찾음
-    if(findnumber > arr[mid])
-        s = mid+1
-    if(findnumber < arr[mid])
-        e = mid-1;
-}
 
-boj - 2805
-파라메트릭 search
+
+
+
+
+[파라메트릭 search]
 O(logN * N)  // 이분탐색 * 모든요소
 
 자른 총 합값으로 (기준)을 컨트롤한다.
@@ -53,6 +48,8 @@ public static long binarySearch(int need){
         return returnHeight;
     }
 
+s를 올릴 때 범위를 벗어나도 상관없다.
+이전에 returnHeight 에 조건을 만족하는 값을 저장해놨기 때문이다.
 
 
 

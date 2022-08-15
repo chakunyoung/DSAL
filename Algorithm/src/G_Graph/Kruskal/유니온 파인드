@@ -6,27 +6,11 @@
 
  --
 
-사이클 디텍팅 : 모든 간선을 union 하는 과정에서 만약 find 가 같다면 사이클 발생
+사이클 디텍팅 : 모든 간선을 union 하는 과정에서 만약 find() 가 같다면 사이클 발생 (union 을 하면 안된다)
 
 크루스칼에서도 사용한다.
 *우선순위 큐 사용
 
 크루스칼에서는 두 대표 원소가 다를 때 해당 간선을 사용한다.
 
---
-find(int n)
-    if(arr[n] = n)
-        return n;
-    return arr[n] = find(arr[n]);
-
-
-union(int x, int y)
-    x = find(x);
-    y = find(y);
-
-    if(x != y)
-        if(x > y)
-            arr[y] = x;
-        else
-            arr[x] = y;
-
+ --
