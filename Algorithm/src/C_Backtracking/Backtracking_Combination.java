@@ -11,7 +11,7 @@ public class Backtracking_Combination {
         M = inputArr.length;
         BT(0, 0);
     }
-    public static void BT(int k, int idx){ // ÇöÀç ÀÚ¸®¼ö, ½ÃÀÛ idx
+    public static void BT(int k, int idx){ // í˜„ì¬ ìë¦¬ìˆ˜, ì‹œì‘ idx
         if(2 == k){
             for(int j = 0; j < 2; j++)
                 System.out.print(arr[j] + " ");
@@ -19,12 +19,12 @@ public class Backtracking_Combination {
             return;
         }
         
-        // ¾Õº¸´Ù ÀÛÀº¼ö°¡ ³ª¿Ã ¼ö ¾ø°í, ¹İº¹¼öµµ ¾È³ª¿È
-        for(int i = idx; i < M; i++){ // ÁÖ¾îÁø idx // 0 ~ 4
+        // ì•ë³´ë‹¤ ì‘ì€ìˆ˜ê°€ ë‚˜ì˜¬ ìˆ˜ ì—†ê³ , ë°˜ë³µìˆ˜ë„ ì•ˆë‚˜ì˜´
+        for(int i = idx; i < M; i++){ // ì£¼ì–´ì§„ idx // 0 ~ 4
             arr[k] = inputArr[i];
-            BT(k + 1, i + 1); // ´ÙÀ½ for ¹®Àº idx+1 ºÎÅÍ ½ÃÀÛ.
+            BT(k + 1, i + 1); // ë‹¤ìŒ for ë¬¸ì€ idx+1 ë¶€í„° ì‹œì‘.
         }
     }
 }
-// "¾Õ ¼öº¸´Ù µŞ ¼ö°¡ ÀÛÀ» ¼ö ¾ø´Ù." ¸¦ ÀÌ¿ëÇÏ¸é µÊ.
-// (3 ..) ÀÌ¸é for ¹®¿¡ ¸øµé¾î°¡¼­ Á¾·á
+// "ì• ìˆ˜ë³´ë‹¤ ë’· ìˆ˜ê°€ ì‘ì„ ìˆ˜ ì—†ë‹¤." ë¥¼ ì´ìš©í•˜ë©´ ë¨.
+// (3 ..) ì´ë©´ for ë¬¸ì— ëª»ë“¤ì–´ê°€ì„œ ì¢…ë£Œ

@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 /*
-[Àû¿ë ¹®Á¦]
-¼øÈ¯À» ¹ß»ı½ÃÅ°Áö ¾ÊÀ¸¸ç ÃÖ¼Òºñ¿ëÀ¸·Î ¸ğµç Edge ¸¦ ¿¬°á
+[ì ìš© ë¬¸ì œ]
+ìˆœí™˜ì„ ë°œìƒì‹œí‚¤ì§€ ì•Šìœ¼ë©° ìµœì†Œë¹„ìš©ìœ¼ë¡œ ëª¨ë“  Edge ë¥¼ ì—°ê²°
  */
 public class MakePrim {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,12 +23,12 @@ public class MakePrim {
         int eCount = Integer.parseInt(st.nextToken());
         int vCount = Integer.parseInt(st.nextToken());
 
-        visit = new boolean[eCount+1]; // ¹æ¹®Ã³¸®
+        visit = new boolean[eCount+1]; // ë°©ë¬¸ì²˜ë¦¬
         for(int i = 0; i<=eCount; i++){
             list.add(new ArrayList<>());
         }
 
-        //±×·¡ÇÁ
+        //ê·¸ë˜í”„
         while(vCount -- > 0){
             st = new StringTokenizer(br.readLine());
             int w1 = Integer.parseInt(st.nextToken());
@@ -43,10 +43,10 @@ public class MakePrim {
         System.out.println(getW);
     }
 
-    // q¿¡¼­ »Ì¾Æ¼­ q ½ÃÀÛÁö¸¦ pq¿¡ ³Ö´Â´Ù.
-    // pq¸¦ µ¹¸°´Ù.
-    // pqÀÇ µµÂøÁö°¡ false ¶ó¸é »ç¿ëÇÑ´Ù. // q.offer // true // break //
-    // ¹İº¹
+    // qì—ì„œ ë½‘ì•„ì„œ q ì‹œì‘ì§€ë¥¼ pqì— ë„£ëŠ”ë‹¤.
+    // pqë¥¼ ëŒë¦°ë‹¤.
+    // pqì˜ ë„ì°©ì§€ê°€ false ë¼ë©´ ì‚¬ìš©í•œë‹¤. // q.offer // true // break //
+    // ë°˜ë³µ
     public static int prim(int startEdge){
         int count = 0;
 

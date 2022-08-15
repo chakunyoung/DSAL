@@ -8,26 +8,26 @@ import java.util.*;
 // keyword: inDegree
 
 /*
-À§»óÁ¤·Ä( indegree ¼¼±â ¹®Á¦ ) // Å×Å©Æ®¸®
+ìœ„ìƒì •ë ¬( indegree ì„¸ê¸° ë¬¸ì œ ) // í…Œí¬íŠ¸ë¦¬
 
-        [Àû¿ë ¹®Á¦]
-        3º¸´Ù 1, 2 °¡ ¾Õ¿¡ ÀÖ´Â°Ç È®½Ç
-        ÇÏÁö¸¸ 1, 2 ÀÇ ¼ø¼­°¡ ¾ø´Ù.
+        [ì ìš© ë¬¸ì œ]
+        3ë³´ë‹¤ 1, 2 ê°€ ì•ì— ìˆëŠ”ê±´ í™•ì‹¤
+        í•˜ì§€ë§Œ 1, 2 ì˜ ìˆœì„œê°€ ì—†ë‹¤.
         1,2,3
-        2,1,3 µÑ´Ù °¡´É.
+        2,1,3 ë‘˜ë‹¤ ê°€ëŠ¥.
 
-        "¹æÇâ±×·¡ÇÁ"
-        ¼ø¼­°¡ ÀÖ´Â°Í.
+        "ë°©í–¥ê·¸ë˜í”„"
+        ìˆœì„œê°€ ìˆëŠ”ê²ƒ.
         a->b->c
         d->
 
-        [¾Ë°í¸®Áò]
-        deg 0 ÀÎ¾ÖµéÀ» ¸ÕÀú Å¥¿¡ ³Ö¾îµÒ.
-        "°¡¸£Å°´Â ¾Öµé" deg »­
-        °¡¸£Å² deg °¡ 0ÀÌ µÇ¸é Å¥¿¡ ³ÖÀ½.
+        [ì•Œê³ ë¦¬ì¦˜]
+        deg 0 ì¸ì• ë“¤ì„ ë¨¼ì € íì— ë„£ì–´ë‘ .
+        "ê°€ë¥´í‚¤ëŠ” ì• ë“¤" deg ëºŒ
+        ê°€ë¥´í‚¨ deg ê°€ 0ì´ ë˜ë©´ íì— ë„£ìŒ.
 */
 
-public class À§»óÁ¤·Ä {
+public class ìœ„ìƒì •ë ¬ {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     static List<List<Integer>> list = new ArrayList<>();
@@ -42,11 +42,11 @@ public class À§»óÁ¤·Ä {
         int lines = Integer.parseInt(st.nextToken());
         deg = new int[student+1];
 
-        // 0¹øÀº »ç¿ëÇÏÁö ¾ÊÀ½.
+        // 0ë²ˆì€ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ.
         for(int i = 0; i<=student; i++)
             list.add(new ArrayList<>());
 
-        // ±×·¡ÇÁ 
+        // ê·¸ë˜í”„ 
         while(lines-- > 0){
             st = new StringTokenizer(br.readLine());
             int first = Integer.parseInt(st.nextToken());
@@ -55,26 +55,26 @@ public class À§»óÁ¤·Ä {
             ++deg[second];
         }
 
-        // inDegree ¸¦ ÀüºÎ ¼¼¼­ int[] ¿¡ ³Ö¾î µÒ.
+        // inDegree ë¥¼ ì „ë¶€ ì„¸ì„œ int[] ì— ë„£ì–´ ë‘ .
 
-        // À§»óÁ¤·Ä
-        for (int i = 1; i < deg.length; i++) { // deg °¡ 0ÀÎ ¾ÖµéÀ» ÀüºÎ ¸ÕÀú Å¥¿¡ ³Ö¾îµÒ
+        // ìœ„ìƒì •ë ¬
+        for (int i = 1; i < deg.length; i++) { // deg ê°€ 0ì¸ ì• ë“¤ì„ ì „ë¶€ ë¨¼ì € íì— ë„£ì–´ë‘ 
             if (deg[i] == 0)
                 q.add(i);
         }
 
 /////////
 
-        while (!q.isEmpty()) { // ÇöÀç 0ÀÎ edge
+        while (!q.isEmpty()) { // í˜„ì¬ 0ì¸ edge
             int edge = q.poll();
             List<Integer> v = list.get(edge);
 
             System.out.println(edge + " ");
             for (int e : v) {
-                deg[e]--;  // 0°ú ¿¬°áµÈ °÷À» ÇÏ³ª ÁÙ¿©ÁÜ
+                deg[e]--;  // 0ê³¼ ì—°ê²°ëœ ê³³ì„ í•˜ë‚˜ ì¤„ì—¬ì¤Œ
 
-                if (deg[e] == 0) // deg 0ÀÌ µÇ¸é ÇØ´ç edge °¡ »ç¿ëÇÒ ÁØºñ°¡ µÈ °Í (¾Õ Å×Å©Æ®¸®°¡ ÀüºÎ ¿Ï·á µÊ)
-                    q.add(e); // q¿¡ ³Ö´Â´Ù.
+                if (deg[e] == 0) // deg 0ì´ ë˜ë©´ í•´ë‹¹ edge ê°€ ì‚¬ìš©í•  ì¤€ë¹„ê°€ ëœ ê²ƒ (ì• í…Œí¬íŠ¸ë¦¬ê°€ ì „ë¶€ ì™„ë£Œ ë¨)
+                    q.add(e); // qì— ë„£ëŠ”ë‹¤.
             }
         }
     }

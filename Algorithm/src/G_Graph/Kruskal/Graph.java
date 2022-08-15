@@ -5,14 +5,14 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-// TODO : ¼­·Î¼Ò ÁıÇÕ(À¯´Ï¿Â ÆÄÀÎµå), ¿ì¼±¼øÀ§ Å¥
+// TODO : ì„œë¡œì†Œ ì§‘í•©(ìœ ë‹ˆì˜¨ íŒŒì¸ë“œ), ìš°ì„ ìˆœìœ„ í
 
-// TODO : ¸ÕÀú ¿ì¼±¼øÀ§Å¥¿¡ edge ´Ù ³Ö¾îµÒ
-// TODO : °¡ÁßÄ¡°¡ °¡Àå ÀûÀº °ÍÀ» »ç¿ëÇÑ´Ù. (»çÀÌÅ¬ÀÌ ¹ß»ıÇÏÁö ¾Ê´Â edge ¸¦ ¿¬°áÇÑ´Ù.)
+// TODO : ë¨¼ì € ìš°ì„ ìˆœìœ„íì— edge ë‹¤ ë„£ì–´ë‘ 
+// TODO : ê°€ì¤‘ì¹˜ê°€ ê°€ì¥ ì ì€ ê²ƒì„ ì‚¬ìš©í•œë‹¤. (ì‚¬ì´í´ì´ ë°œìƒí•˜ì§€ ì•ŠëŠ” edge ë¥¼ ì—°ê²°í•œë‹¤.)
 
 public class Graph {
-    final Queue<Edge> q; // ¿ì¼±¼øÀ§ Å¥(MinHeap) // ÀüÃ¼ ¿§Áö¸¦ ÀÌ°÷¿¡ ³ÖÀ½
-    final int[] disjointSet; // ¼­·Î¼Ò ÁıÇÕ // index ¿§Áö ¹øÈ£, value ´ëÇ¥¿ø¼Ò
+    final Queue<Edge> q; // ìš°ì„ ìˆœìœ„ í(MinHeap) // ì „ì²´ ì—£ì§€ë¥¼ ì´ê³³ì— ë„£ìŒ
+    final int[] disjointSet; // ì„œë¡œì†Œ ì§‘í•© // index ì—£ì§€ ë²ˆí˜¸, value ëŒ€í‘œì›ì†Œ
 
     public Graph() {
         q = new PriorityQueue<>();
@@ -26,7 +26,7 @@ public class Graph {
     }
 
 
-    // TODO : Àç±ÍÀûÀ¸·Î ÇØ´ç ¿ø¼ÒÀÇ "´ëÇ¥ ¿ø¼Ò°ª" À» Ã£´Â´Ù.
+    // TODO : ì¬ê·€ì ìœ¼ë¡œ í•´ë‹¹ ì›ì†Œì˜ "ëŒ€í‘œ ì›ì†Œê°’" ì„ ì°¾ëŠ”ë‹¤.
     private int find(int x) {
         if (disjointSet[x] == x)
             return x;
@@ -34,28 +34,28 @@ public class Graph {
             return disjointSet[x] = find(disjointSet[x]);
     }
 
-    // TODO »çÀÌÅ¬ µğÅØÆÃ : ¸ğµç °£¼±À» union ÇÏ´Â °úÁ¤¿¡¼­ ¸¸¾à find °¡ °°´Ù¸é »çÀÌÅ¬ ¹ß»ı
+    // TODO ì‚¬ì´í´ ë””í…íŒ… : ëª¨ë“  ê°„ì„ ì„ union í•˜ëŠ” ê³¼ì •ì—ì„œ ë§Œì•½ find ê°€ ê°™ë‹¤ë©´ ì‚¬ì´í´ ë°œìƒ
     private void union(int u, int v) {
-        u = find(u); // 2 Á¤Á¡ -> 1
-        v = find(v); // 5 Á¤Á¡ -> 4
+        u = find(u); // 2 ì •ì  -> 1
+        v = find(v); // 5 ì •ì  -> 4
 
-        // TODO ""´ëÇ¥ ¿ø¼Ò""ÀÇ °ªÀ» ¹Ù²Ş
+        // TODO ""ëŒ€í‘œ ì›ì†Œ""ì˜ ê°’ì„ ë°”ê¿ˆ
         if (u < v)
             disjointSet[v] = u;
         else
             disjointSet[u] = v;
     }
 
-    // 1 2 3 -> 1¹ø±×·ì // 4 5 6 -> 4¹ø ±×·ì
-    // 2¿Í 5¸¦ union ÇÏ¸é .. 1°ú 4 ¸¦ Ã£°í, 4¹øÀ» 1·Î ¹Ù²Û´Ù. (´ëÇ¥¸¦ ¹Ù²Û´Ù)
+    // 1 2 3 -> 1ë²ˆê·¸ë£¹ // 4 5 6 -> 4ë²ˆ ê·¸ë£¹
+    // 2ì™€ 5ë¥¼ union í•˜ë©´ .. 1ê³¼ 4 ë¥¼ ì°¾ê³ , 4ë²ˆì„ 1ë¡œ ë°”ê¾¼ë‹¤. (ëŒ€í‘œë¥¼ ë°”ê¾¼ë‹¤)
     public Set<Edge> getMST() {
         Set<Edge> safeEdgeSet = new HashSet<>();
-        while (!q.isEmpty()) {       // °£¼±À» ÀüºÎ ´Ù ¹Ì¸® ³Ö¾îµ×À½
+        while (!q.isEmpty()) {       // ê°„ì„ ì„ ì „ë¶€ ë‹¤ ë¯¸ë¦¬ ë„£ì–´ë’€ìŒ
             Edge edge = q.poll();
-            // TODO : ´ëÇ¥ ¿ø¼Ò°¡ ¼­·Î ´Ù¸£¸é ¼­·Î ´Ù¸¥ ºÎºĞ ÁıÇÕÀÌ´Ù. // ¿¬°á°¡´É
-            if (find(edge.u) != find(edge.v)) { // »çÀÌÅ¬ µğÅØÆÃµÇ¸é °£¼±À» »ç¿ëÇÏÁö ¾Ê´Â´Ù.
-                union(edge.u, edge.v); // ¿¬°áÇÏ±â (´ëÇ¥¿ø¼Ò º¯°æ)
-                safeEdgeSet.add(edge);  // ¿¬°á ¿§Áöµé add
+            // TODO : ëŒ€í‘œ ì›ì†Œê°€ ì„œë¡œ ë‹¤ë¥´ë©´ ì„œë¡œ ë‹¤ë¥¸ ë¶€ë¶„ ì§‘í•©ì´ë‹¤. // ì—°ê²°ê°€ëŠ¥
+            if (find(edge.u) != find(edge.v)) { // ì‚¬ì´í´ ë””í…íŒ…ë˜ë©´ ê°„ì„ ì„ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+                union(edge.u, edge.v); // ì—°ê²°í•˜ê¸° (ëŒ€í‘œì›ì†Œ ë³€ê²½)
+                safeEdgeSet.add(edge);  // ì—°ê²° ì—£ì§€ë“¤ add
             }
         }
         return safeEdgeSet;

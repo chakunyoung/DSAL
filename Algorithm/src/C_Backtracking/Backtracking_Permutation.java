@@ -1,12 +1,12 @@
 package C_Backtracking;
 
 /*
-¼ø¿­ -> backtracking (¹æ¹®Ã³¸®·Î Á¶°ÇÅ½»ö)
+ìˆœì—´ -> backtracking (ë°©ë¬¸ì²˜ë¦¬ë¡œ ì¡°ê±´íƒìƒ‰)
 */
 public class Backtracking_Permutation {
-    static boolean[] v = new boolean[10]; // ÀÎµ¦½º°¡ ÇØ´ç ¼ýÀÚ ÀÚÃ¼°¡ µÊ. // 0À» ¾È¾¸ // Å©±â¸¦ ¿©À¯ÀÖ°Ô Àâ¾ÆÁÜ
-    static int[] arr = new int[10]; // ¹è¿­ ±â¾ï
-    static int[] basicArr; // ÁÖ¾îÁø arr
+    static boolean[] v = new boolean[10]; // ì¸ë±ìŠ¤ê°€ í•´ë‹¹ ìˆ«ìž ìžì²´ê°€ ë¨. // 0ì„ ì•ˆì”€ // í¬ê¸°ë¥¼ ì—¬ìœ ìžˆê²Œ ìž¡ì•„ì¤Œ
+    static int[] arr = new int[10]; // ë°°ì—´ ê¸°ì–µ
+    static int[] basicArr; // ì£¼ì–´ì§„ arr
     static int N;
 
     public static void main(String[] args) {
@@ -24,12 +24,12 @@ public class Backtracking_Permutation {
         }
 
         /*
-         Àç±Í -> °¢ ÀÚ¸®¼ö
-         for  -> ¼ýÀÚ´Â ¹Ýº¹¹®ÀÌ Á¦¾î
-         ¹æ¹® -> Àç±Í »óÅÂ¿¡¼­ ¹æ¹®µÈ ¼ýÀÚ »ç¿ëÇÏÁö ¸øÇÏ°ÔÇÏ·Á°í
+         ìž¬ê·€ -> ê° ìžë¦¬ìˆ˜
+         for  -> ìˆ«ìžëŠ” ë°˜ë³µë¬¸ì´ ì œì–´
+         ë°©ë¬¸ -> ìž¬ê·€ ìƒíƒœì—ì„œ ë°©ë¬¸ëœ ìˆ«ìž ì‚¬ìš©í•˜ì§€ ëª»í•˜ê²Œí•˜ë ¤ê³ 
 
-         Àç±Í »óÅÂ¿¡¼± Àá±¸°í, Àç±Í°¡ ³¡³ª¸é Ç®¾îÁØ´Ù.
-         ¹Ýº¹¹®À» »ç¿ëÁßÀÌ±â ¶§¹®¿¡ Àç±Í°¡ ³¡³ª¸é ´ÙÀ½ ¹Ýº¹À¸·Î ÁøÇàµÇ¹Ç·Î Ç®¾îÁàµµ µÈ´Ù.
+         ìž¬ê·€ ìƒíƒœì—ì„  ìž êµ¬ê³ , ìž¬ê·€ê°€ ëë‚˜ë©´ í’€ì–´ì¤€ë‹¤.
+         ë°˜ë³µë¬¸ì„ ì‚¬ìš©ì¤‘ì´ê¸° ë•Œë¬¸ì— ìž¬ê·€ê°€ ëë‚˜ë©´ ë‹¤ìŒ ë°˜ë³µìœ¼ë¡œ ì§„í–‰ë˜ë¯€ë¡œ í’€ì–´ì¤˜ë„ ëœë‹¤.
          */
 
         for(int i =0; i<N; i++){

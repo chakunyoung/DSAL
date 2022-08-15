@@ -16,26 +16,26 @@ public class UnionFind_Simulation {
         set[8] = 6;
         set[9] = 6;
 
-        System.out.println("fine Àü: " + Arrays.toString(set));
+        System.out.println("fine ì „: " + Arrays.toString(set));
 
         find(5);
-        System.out.println("5¹ø fine ÈÄ: " + Arrays.toString(set));
+        System.out.println("5ë²ˆ fine í›„: " + Arrays.toString(set));
 
         find(7);
-        System.out.println("7¹ø fine ÈÄ: " + Arrays.toString(set));
+        System.out.println("7ë²ˆ fine í›„: " + Arrays.toString(set));
 
         if(find(5) != find(7))
             union(5, 7);
         System.out.println("union: " + Arrays.toString(set));
 
-        // ´ëÇ¥°ªÀÌ °°¾Æ¼­ union call() ÀÌ µÇÁö ¾Ê´Â´Ù.
+        // ëŒ€í‘œê°’ì´ ê°™ì•„ì„œ union call() ì´ ë˜ì§€ ì•ŠëŠ”ë‹¤.
         if(find(5) != find(8))
             union(5, 8);
         System.out.println("union: " + Arrays.toString(set));
     }
 
-    // »çÀÌÅ¬ È®ÀÎÀº (find != find) ·Î °¡´É
-    // ¼Ò¼ÓÀ» Ã£´Â´Ù.
+    // ì‚¬ì´í´ í™•ì¸ì€ (find != find) ë¡œ ê°€ëŠ¥
+    // ì†Œì†ì„ ì°¾ëŠ”ë‹¤.
     public static int find(int n){
        if(n == set[n])
            return n;
@@ -43,17 +43,17 @@ public class UnionFind_Simulation {
         return set[n] = find(set[n]);
     }
 
-    // µé¾î¿À±âÀü¿¡ n1==n2 °Ë»ç¸¦ ÇÔ
-    // edge ¸¦ ¿¬°áÇÏ´Â °°Áö ¾ÊÀ¸¸é union ÀÌ °¡´ÉÇÏ´Ù.
+    // ë“¤ì–´ì˜¤ê¸°ì „ì— n1==n2 ê²€ì‚¬ë¥¼ í•¨
+    // edge ë¥¼ ì—°ê²°í•˜ëŠ” ê°™ì§€ ì•Šìœ¼ë©´ union ì´ ê°€ëŠ¥í•˜ë‹¤.
     public static void union(int n1, int n2){
         System.out.println("union() call");
 
-        // ´ëÇ¥°ªÀ» Ã£´Â´Ù.
+        // ëŒ€í‘œê°’ì„ ì°¾ëŠ”ë‹¤.
         int rep1 = find(n1);
         int rep2 = find(n2);
         System.out.println(rep1 + " " + rep2);
 
-        // µÑÁß ÀÛÀº ´ëÇ¥ °ªÀ» ´ëÇ¥°ªÀ¸·Î ¼³Á¤
+        // ë‘˜ì¤‘ ì‘ì€ ëŒ€í‘œ ê°’ì„ ëŒ€í‘œê°’ìœ¼ë¡œ ì„¤ì •
         if(rep1 > rep2){
             set[rep2] = rep2;
         }else

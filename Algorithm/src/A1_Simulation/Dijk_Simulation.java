@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// ¿ì¼±¼øÀ§ Å¥, dist
-// °¡ÁßÄ¡°¡ À½¼ö¸é ¾ÈµÊ
+// ìš°ì„ ìˆœìœ„ í, dist
+// ê°€ì¤‘ì¹˜ê°€ ìŒìˆ˜ë©´ ì•ˆë¨
 
-// °æÀ¯Áö, µµÂøÁö
+// ê²½ìœ ì§€, ë„ì°©ì§€
 
 
 public class Dijk_Simulation {
@@ -19,28 +19,28 @@ public class Dijk_Simulation {
 
     public static void main(String[] args) {
 
-        dist = new int[edgeCount]; // 0 »ç¿ë¾ÈÇÔ.
+        dist = new int[edgeCount]; // 0 ì‚¬ìš©ì•ˆí•¨.
 
-        //°£¼± 7°³
+        //ê°„ì„  7ê°œ
         for(int i = 0; i<=vCount; i++) {
             list.add(new ArrayList<>());
         }
 
-        // (1 - > 5) 2000 ¾²´Â °æ·Î
+        // (1 - > 5) 2000 ì“°ëŠ” ê²½ë¡œ
         list.get(1).add(new Node1(4, 2000));
         list.get(1).add(new Node1(5, 2000));
 
-        // (1 -> 5) 10 ¾²´Â °æ·Î
+        // (1 -> 5) 10 ì“°ëŠ” ê²½ë¡œ
         list.get(1).add(new Node1(2, 5));
         list.get(2).add(new Node1(5, 5));
 
-        // (1 -> 5) 3 ¾²´Â °æ·Î
+        // (1 -> 5) 3 ì“°ëŠ” ê²½ë¡œ
         list.get(1).add(new Node1(3, 1));
         list.get(3).add(new Node1(4, 1));
         list.get(4).add(new Node1(5, 1));
 
 
-        //## ÁÖÀÇ!!!
+        //## ì£¼ì˜!!!
         Arrays.fill(dist, 10000000);
         dist[1] = 0;
 

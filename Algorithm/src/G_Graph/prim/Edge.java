@@ -6,12 +6,12 @@ public class Edge implements Comparable<Edge> {
     int w;
 
     public Edge(int u, int v, int w) {
-        this.u = u; // ½ÃÀÛ
-        this.v = v; // µµÂø
-        this.w = w; // ºñ¿ë
+        this.u = u; // ì‹œì‘
+        this.v = v; // ë„ì°©
+        this.w = w; // ë¹„ìš©
     }
 
-    // ºñ±³±âÁØ
+    // ë¹„êµê¸°ì¤€
     @Override
     public int compareTo(Edge o) {
         return w - o.w;

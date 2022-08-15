@@ -1,12 +1,12 @@
 package A1_Simulation;
 
-// Áßº¹ ¼ø¿­
-// ¼ø¿­
-// Áßº¹ Á¶ÇÕ -> ¾Õ ¼ö°¡ µŞ ¼öº¸´Ù ÀÛ¾Æ¾ß ÇÔ
-// Á¶ÇÕ
+// ì¤‘ë³µ ìˆœì—´
+// ìˆœì—´
+// ì¤‘ë³µ ì¡°í•© -> ì• ìˆ˜ê°€ ë’· ìˆ˜ë³´ë‹¤ ì‘ì•„ì•¼ í•¨
+// ì¡°í•©
 
 public class BackTrackingSimulation {
-    static int[] arr; // ÀÓ½Ã ÀúÀå arr
+    static int[] arr; // ì„ì‹œ ì €ì¥ arr
     static int[] temp;
     static boolean[] v = new boolean[7];
 
@@ -19,9 +19,9 @@ public class BackTrackingSimulation {
 
     }
 
-    // limit ¿¡¼­ ¹®Á¦ ¿ä±¸»çÇ×À» Ã³¸®ÇØÁÖ¸é ÁÁ´Ù.
-    // °úÁ¤¿¡¼­ Ã³¸®ÇØÁà¾ßÇÏ´Â °æ¿ìµµ ÀÖ´Ù. (N-queen)
-    public static void bt(int limit, int n, int idx){ // limit Á¦ÇÑ ÀÚ¸®¼ö, n ÇöÀç ÀÚ¸®¼ö
+    // limit ì—ì„œ ë¬¸ì œ ìš”êµ¬ì‚¬í•­ì„ ì²˜ë¦¬í•´ì£¼ë©´ ì¢‹ë‹¤.
+    // ê³¼ì •ì—ì„œ ì²˜ë¦¬í•´ì¤˜ì•¼í•˜ëŠ” ê²½ìš°ë„ ìˆë‹¤. (N-queen)
+    public static void bt(int limit, int n, int idx){ // limit ì œí•œ ìë¦¬ìˆ˜, n í˜„ì¬ ìë¦¬ìˆ˜
 
 
 

@@ -5,53 +5,53 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 /*
-ÇÁ¸²Àº ±×¸®µğ, ¹æ¹®Ã³¸®¸¦ »ç¿ëÇØ¼­ BFS Ã³·³ »ç¿ëÇÑ´Ù.
+í”„ë¦¼ì€ ê·¸ë¦¬ë””, ë°©ë¬¸ì²˜ë¦¬ë¥¼ ì‚¬ìš©í•´ì„œ BFS ì²˜ëŸ¼ ì‚¬ìš©í•œë‹¤.
  */
 public class Graph {
     final LinkedList<Edge>[] graph;
     final boolean[] visit;
 
     @SuppressWarnings("unchecked")
-    public Graph() { // »ı¼ºÀÚ - (¹æ¹®Ã³¸®, Á¤Á¡)
-        visit = new boolean[6]; // ¹æ¹®Ã³¸®
-        graph = new LinkedList[6]; // Á¤Á¡ 6°³
+    public Graph() { // ìƒì„±ì - (ë°©ë¬¸ì²˜ë¦¬, ì •ì )
+        visit = new boolean[6]; // ë°©ë¬¸ì²˜ë¦¬
+        graph = new LinkedList[6]; // ì •ì  6ê°œ
         for (int i = 0; i < graph.length; i++) {
-            graph[i] = new LinkedList<>(); // 6°³ Á¤Á¡ °´Ã¼ »ı¼º
+            graph[i] = new LinkedList<>(); // 6ê°œ ì •ì  ê°ì²´ ìƒì„±
         }
     }
 
-    // ¾ç¹æÇâ °£¼± // 2Â÷¿ø LinkedList
-    public void undirectedEdge(int u, int v, int w) { // MAP °£¼±µé Ãß°¡
+    // ì–‘ë°©í–¥ ê°„ì„  // 2ì°¨ì› LinkedList
+    public void undirectedEdge(int u, int v, int w) { // MAP ê°„ì„ ë“¤ ì¶”ê°€
         graph[u].add(new Edge(u, v, w));
         graph[v].add(new Edge(v, u, w));
     }
 
-    // °£¼±Àº ´Ù ¿¬°áµÈ »óÅÂ¿¡¼­ getMST
-    // u ½ÃÀÛ, v µµÂø
+    // ê°„ì„ ì€ ë‹¤ ì—°ê²°ëœ ìƒíƒœì—ì„œ getMST
+    // u ì‹œì‘, v ë„ì°©
     public ArrayList<Edge> getMST() {
-        int vertex = 0; // 0¿¡ µµÂøÇß´Ù°í ½ÃÀÛ.
-        PriorityQueue<Edge> edgeQueue = new PriorityQueue<>(); // ¿ì¼±¼øÀ§Å¥, °£¼± ÀúÀå
-        ArrayList<Edge> safeEdge = new ArrayList<>(); // ÃÖÁ¾ ¿¬°áµÈ °£¼±
+        int vertex = 0; // 0ì— ë„ì°©í–ˆë‹¤ê³  ì‹œì‘.
+        PriorityQueue<Edge> edgeQueue = new PriorityQueue<>(); // ìš°ì„ ìˆœìœ„í, ê°„ì„  ì €ì¥
+        ArrayList<Edge> safeEdge = new ArrayList<>(); // ìµœì¢… ì—°ê²°ëœ ê°„ì„ 
         
-        while (!visit[vertex]) { // 0ºÎÅÍ ½ÃÀÛ. ¹æ¹®x ¸é ¹æ¹®À¸·Î ¸¸µë
+        while (!visit[vertex]) { // 0ë¶€í„° ì‹œì‘. ë°©ë¬¸x ë©´ ë°©ë¬¸ìœ¼ë¡œ ë§Œë“¬
             visit[vertex] = true;
 
-            // ÇØ´ç Á¤Á¡ÀÇ °£¼±µé Ãß°¡ÇÏ±â
+            // í•´ë‹¹ ì •ì ì˜ ê°„ì„ ë“¤ ì¶”ê°€í•˜ê¸°
             for (Edge edge : graph[vertex]) {
-                if (!visit[edge.v]) { // °£¼±ÀÇ µµÂøÁö°¡ ¹æ¹®X ÀÎ °Í ¸¸
+                if (!visit[edge.v]) { // ê°„ì„ ì˜ ë„ì°©ì§€ê°€ ë°©ë¬¸X ì¸ ê²ƒ ë§Œ
                     edgeQueue.add(edge);
                 }
             }
             
-            while (!edgeQueue.isEmpty()) { // ÇöÀç vertex ±æ¸·Çôµµ ¸ñÀûÁö°¡ ¹æ¹®Ã³¸® x ÀÎ°É Ã£¾Æ¼­ µ¹°ÔµÊ.
+            while (!edgeQueue.isEmpty()) { // í˜„ì¬ vertex ê¸¸ë§‰í˜€ë„ ëª©ì ì§€ê°€ ë°©ë¬¸ì²˜ë¦¬ x ì¸ê±¸ ì°¾ì•„ì„œ ëŒê²Œë¨.
                 Edge edge = edgeQueue.poll(); 
-                if (!visit[edge.v]) { // (°£¼±ÀÇ µµÂøÁö)¹æ¹®x, (ÀÌÀü¿¡ ¹æ¹®Ã³¸® µÆÀ»¼öµµ ÀÖÀ¸´Ï °è¼Ó È®ÀÎ)
-                    safeEdge.add(edge); // ÃÖÁ¾ °£¼±À¸·Î »ç¿ë
-                    vertex = edge.v; // ´ÙÀ½Àº ¿©±â¸¦ ±âÁØÀ¸·Î µ¹¸±²¨ÀÓ
-                    break; // ¿©±â´Â ¿¬°áÀÌ ³¡³´°í (µµÂø Á¤Á¡) -> (½ÃÀÛ Á¤Á¡) À¸·Î ±³Ã¼
+                if (!visit[edge.v]) { // (ê°„ì„ ì˜ ë„ì°©ì§€)ë°©ë¬¸x, (ì´ì „ì— ë°©ë¬¸ì²˜ë¦¬ ëì„ìˆ˜ë„ ìˆìœ¼ë‹ˆ ê³„ì† í™•ì¸)
+                    safeEdge.add(edge); // ìµœì¢… ê°„ì„ ìœ¼ë¡œ ì‚¬ìš©
+                    vertex = edge.v; // ë‹¤ìŒì€ ì—¬ê¸°ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ëŒë¦´êº¼ì„
+                    break; // ì—¬ê¸°ëŠ” ì—°ê²°ì´ ëë‚«ê³  (ë„ì°© ì •ì ) -> (ì‹œì‘ ì •ì ) ìœ¼ë¡œ êµì²´
                 }
             }
         }
-        return safeEdge; // ÃÖÁ¾ ¿¬°á °£¼±
+        return safeEdge; // ìµœì¢… ì—°ê²° ê°„ì„ 
     }
 }

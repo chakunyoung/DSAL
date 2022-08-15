@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 import java.util.StringTokenizer;
 
 /*
-ÀÔ·Â
+ì…ë ¥
 6
 10 20 10 30 20 50
  */
@@ -31,11 +31,11 @@ public class LIS {
         Arrays.fill(count, 1);
 
         // LIS
-        // ¾Õ¼­ ÀÖ´ø°É ´Ù½Ã ´Ù º»´Ù.
-        for(int i = 1; i<arr.length; i++) // ÇöÀç ÀÚ½Å
-            for(int j =0; j<i; j++) // ÀÌÀü ²¨
-                if(arr[i] > arr[j])  // j°¡ ÀÛ´Ù ±×·³ ¿¬°á °¡´É. (j±îÁö ÇØ³ù´ø°Å Èí¼ö + ÀÚ½Å)
-                    count[i] = Math.max(count[i], count[j] + 1); // (ÀÚ½Å²¨ °»½Å , ÀÌÀü + 1 ) Áß °¡Àå Å«°Å »ç¿ë
+        // ì•ì„œ ìˆë˜ê±¸ ë‹¤ì‹œ ë‹¤ ë³¸ë‹¤.
+        for(int i = 1; i<arr.length; i++) // í˜„ì¬ ìì‹ 
+            for(int j =0; j<i; j++) // ì´ì „ êº¼
+                if(arr[i] > arr[j])  // jê°€ ì‘ë‹¤ ê·¸ëŸ¼ ì—°ê²° ê°€ëŠ¥. (jê¹Œì§€ í•´ë†¨ë˜ê±° í¡ìˆ˜ + ìì‹ )
+                    count[i] = Math.max(count[i], count[j] + 1); // (ìì‹ êº¼ ê°±ì‹  , ì´ì „ + 1 ) ì¤‘ ê°€ì¥ í°ê±° ì‚¬ìš©
 
         OptionalInt maxCount = Arrays.stream(count).max();
         System.out.println(maxCount.orElse(0));

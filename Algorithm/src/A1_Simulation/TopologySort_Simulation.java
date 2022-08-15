@@ -42,8 +42,8 @@ public class TopologySort_Simulation {
         }
 
         while(!q.isEmpty()){
-            int edge = q.poll(); // ÀÌÁ¦ºÎÅÍ ¾ê¸¦ °¡¸£Å°´Â¾Ö´Â ¾ø´Ù.
-            sb.append(edge).append(" "); // °á°ú¿¡ Ãß°¡
+            int edge = q.poll(); // ì´ì œë¶€í„° ì–˜ë¥¼ ê°€ë¥´í‚¤ëŠ”ì• ëŠ” ì—†ë‹¤.
+            sb.append(edge).append(" "); // ê²°ê³¼ì— ì¶”ê°€
 
             for(int ele : list.get(edge)){
                 indegree[ele]--;

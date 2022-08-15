@@ -1,14 +1,14 @@
 package S_BinarySearch;
 
-// BS ÀÌÀü¿¡ "Á¤·Ä"µÇ¾îÀÖ¾î¾ßÇÔ.
+// BS ì´ì „ì— "ì •ë ¬"ë˜ì–´ìˆì–´ì•¼í•¨.
 
 import java.util.Arrays;
 
 public class Parametric {
     static long[] arr;
     public static void main(String[] args) {
-        // arr ÀÔ·ÂºÎ
-        // need ÀÔ·ÂºÎ
+        // arr ì…ë ¥ë¶€
+        // need ì…ë ¥ë¶€
         // long answer= parametricSearch(need);
         // System.out.println(answer);
     }
@@ -21,12 +21,12 @@ public class Parametric {
         while(s <= e){
             long mid = (s + e) / 2;
 
-            // ÀÚ¸¥ °ªµéÀÇ ÃÑÇÕÀ» Á¶°ÇÀ¸·Î ÀÌ¿ë
+            // ìë¥¸ ê°’ë“¤ì˜ ì´í•©ì„ ì¡°ê±´ìœ¼ë¡œ ì´ìš©
             long sum = Arrays.stream(arr).map(element -> element - mid).sum();
 
-            if(sum >= need) { // Á¶°ÇÀ» ¸¸Á·ÇÏ¹Ç·Î ¹üÀ§¸¦ ´õ ¾ö¹ĞÇÏ°Ô ÁÙÀÓ
+            if(sum >= need) { // ì¡°ê±´ì„ ë§Œì¡±í•˜ë¯€ë¡œ ë²”ìœ„ë¥¼ ë” ì—„ë°€í•˜ê²Œ ì¤„ì„
                 s = mid + 1;
-                returnHeight = mid;    // Á¶°ÇÀ» ÃæÁ·ÇÑ´Ù¸é ÀÏ´Ü ÀúÀå
+                returnHeight = mid;    // ì¡°ê±´ì„ ì¶©ì¡±í•œë‹¤ë©´ ì¼ë‹¨ ì €ì¥
             }else if(sum < need)
                 e = mid - 1;
         }

@@ -1,6 +1,6 @@
 package C_Backtracking;
 
-// Áßº¹ ¼ø¿­ ¿ÏÀüÅ½»ö DFS
+// ì¤‘ë³µ ìˆœì—´ ì™„ì „íƒìƒ‰ DFS
 
 public class Backtracking_Permutation_repeat {
     static int[] arr = new int[10];
@@ -12,7 +12,7 @@ public class Backtracking_Permutation_repeat {
         N = basicArr.length;
         BT(0);
     }
-    public static void BT(int k){ // ¼ıÀÚ¹üÀ§, ÀÚ¸®¼ö, ÇöÀç ÀÚ¸®¼ö
+    public static void BT(int k){ // ìˆ«ìë²”ìœ„, ìë¦¬ìˆ˜, í˜„ì¬ ìë¦¬ìˆ˜
         if(4 == k){
             for(int j=0; j<4; j++) {
                 System.out.print(arr[j] + " ");

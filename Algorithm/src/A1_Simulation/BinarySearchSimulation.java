@@ -17,7 +17,7 @@ public class BinarySearchSimulation {
         idx = bs(4, arr, 0, arr.length-1);
         System.out.println(idx);
 
-        // return ÀÌ -1 ÀÌ¸é ¾ø´Â ¼ö.
+        // return ì´ -1 ì´ë©´ ì—†ëŠ” ìˆ˜.
         idx = bs(8, arr, 0, arr.length-1);
         System.out.println(idx);
 

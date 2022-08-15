@@ -3,29 +3,29 @@ package B_Recursion;
 /*
 
 *** base condition
-[Á¾·áÁ¶°ÇÀÌ ¹Ýµå½Ã ÇÊ¿ä]
+[ì¢…ë£Œì¡°ê±´ì´ ë°˜ë“œì‹œ í•„ìš”]
 
-Àç±ÍÈ£Ãâ Àü
-Àç±ÍÈ£Ãâ  ( ÇÑ ÇÔ¼ö¿¡¼­ Àç±Í È£ÃâÀÌ ¿©·¯¹øÀÏ ¼ö ÀÖ´Ù. )
-Àç±ÍÈ£Ãâ ÈÄ
+ìž¬ê·€í˜¸ì¶œ ì „
+ìž¬ê·€í˜¸ì¶œ  ( í•œ í•¨ìˆ˜ì—ì„œ ìž¬ê·€ í˜¸ì¶œì´ ì—¬ëŸ¬ë²ˆì¼ ìˆ˜ ìžˆë‹¤. )
+ìž¬ê·€í˜¸ì¶œ í›„
 
 
------------------¸¶Áö¸· °ªÀ» Àü¿ªº¯¼ö¿¡ ³Ö°Å³ª, »ç¿ë(backtracking)
-base condition Á¾·á ¶§ °ªÀ» »ç¿ëÇÏ°í ½Í´Ù¸é (´Ù¸¥ Àü¿ªº¯¼ö¿¡ °ªÀ» ³Ö¾îµÒ)
-Áß°£Áß°£ ÀúÀåÀº backtracking ¹æ½ÄÀ¸·Î ÀÚ¸®¼ö
+-----------------ë§ˆì§€ë§‰ ê°’ì„ ì „ì—­ë³€ìˆ˜ì— ë„£ê±°ë‚˜, ì‚¬ìš©(backtracking)
+base condition ì¢…ë£Œ ë•Œ ê°’ì„ ì‚¬ìš©í•˜ê³  ì‹¶ë‹¤ë©´ (ë‹¤ë¥¸ ì „ì—­ë³€ìˆ˜ì— ê°’ì„ ë„£ì–´ë‘ )
+ì¤‘ê°„ì¤‘ê°„ ì €ìž¥ì€ backtracking ë°©ì‹ìœ¼ë¡œ ìžë¦¬ìˆ˜
 
 void func(int n){
     if(n==5){
-        ÀÎ½ºÅÏ½º º¯¼ö = n;
+        ì¸ìŠ¤í„´ìŠ¤ ë³€ìˆ˜ = n;
         return;
     }
     func(n+1);
     return;
 
 
------------------¸¶Áö¸· °ªÀ» »ç¿ëÇÏ°í ½ÍÀ» ¶§         [ÃÖÁ¾°ªÀ» °è¼Ó ²ø°í¿È]----------------
-* base condition °ªÀ» »ç¿ëÇÏ°í ½Í´Ù¸é return ¿¡ ³Ö¾îµÒ.
-* ¸ðµç Àç±Í°¡ Á¾·áµÉ ¶§ °è¼Ó return ÇÔ
+-----------------ë§ˆì§€ë§‰ ê°’ì„ ì‚¬ìš©í•˜ê³  ì‹¶ì„ ë•Œ         [ìµœì¢…ê°’ì„ ê³„ì† ëŒê³ ì˜´]----------------
+* base condition ê°’ì„ ì‚¬ìš©í•˜ê³  ì‹¶ë‹¤ë©´ return ì— ë„£ì–´ë‘ .
+* ëª¨ë“  ìž¬ê·€ê°€ ì¢…ë£Œë  ë•Œ ê³„ì† return í•¨
 
 int func(int n){
     if( n == 5)
@@ -34,11 +34,11 @@ int func(int n){
 }
 
 
------------------Àç±Í¸¦ ÇÏ¸ç Áß°£ ¿¬»êÀº ¼öÁ¤ÇÏÁö ¾ÊÀ» ¶§
-* return Àº Á¤¸» ±× ÇÔ¼öÀÇ ¸¶Áö¸·ÀÓ ÇÔ¼ö°¡ ÇÑ°¡Áö¶ó°í »ý°¢.
-* [ÀÔ·Â nÀÌ°í, return n] ¾Æ¹« º¯È­°¡ ¾ø´Â Àç±ÍÇÔ¼ö
+-----------------ìž¬ê·€ë¥¼ í•˜ë©° ì¤‘ê°„ ì—°ì‚°ì€ ìˆ˜ì •í•˜ì§€ ì•Šì„ ë•Œ
+* return ì€ ì •ë§ ê·¸ í•¨ìˆ˜ì˜ ë§ˆì§€ë§‰ìž„ í•¨ìˆ˜ê°€ í•œê°€ì§€ë¼ê³  ìƒê°.
+* [ìž…ë ¥ nì´ê³ , return n] ì•„ë¬´ ë³€í™”ê°€ ì—†ëŠ” ìž¬ê·€í•¨ìˆ˜
 
-* È£Ãâ ÀÔÀå¿¡¼­ º¸¸é nÀ» ³Ö°í, nÀ» µ¹·Á¹ÞÀº °Í »Ó // Àç±Í ÇÔ¼ö ºÎ¸£°í ±×³É ÀÚ½ÅÀº °ÅÃÄ°¡´Â °Í
+* í˜¸ì¶œ ìž…ìž¥ì—ì„œ ë³´ë©´ nì„ ë„£ê³ , nì„ ëŒë ¤ë°›ì€ ê²ƒ ë¿ // ìž¬ê·€ í•¨ìˆ˜ ë¶€ë¥´ê³  ê·¸ëƒ¥ ìžì‹ ì€ ê±°ì³ê°€ëŠ” ê²ƒ
 
 int func(int n){
     func(n+1);
@@ -49,9 +49,9 @@ int func(int n){
 
 
 /*
-(º° Âï±â)
-Àç±Í¸¦ ÀÌ¿ëÇØ 2Â÷¿ø arr À» ÀÌ¿ëÇÒ ¶§
-°Å½ÃÀûÀÎ idx ´Â À¯ÁöµÇ¸ç, Àç±ÍµÉ ¶§ ¸¶´Ù idx ¸¦ ¸ÂÃß¾î ÁÖ¸éµÊ.
+(ë³„ ì°ê¸°)
+ìž¬ê·€ë¥¼ ì´ìš©í•´ 2ì°¨ì› arr ì„ ì´ìš©í•  ë•Œ
+ê±°ì‹œì ì¸ idx ëŠ” ìœ ì§€ë˜ë©°, ìž¬ê·€ë  ë•Œ ë§ˆë‹¤ idx ë¥¼ ë§žì¶”ì–´ ì£¼ë©´ë¨.
  */
 
 public class recursion {

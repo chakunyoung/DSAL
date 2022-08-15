@@ -9,14 +9,14 @@ public class Main {
         /**
          * Undirected Graph
          *           0
-         *      (2)¢Ö¢×  ¢Ø¢Ù(3)
+         *      (2)â†—â†™  â†–â†˜(3)
          *        3      1
-         *   (2)¢Ö¢× ¢Ø¢Ù(3)¢Ö¢×(1)
+         *   (2)â†—â†™ â†–â†˜(3)â†—â†™(1)
          *     4      2
-         *            ¢Ø¢Ù(3)
+         *            â†–â†˜(3)
          *              5
          */
-        graph.undirectedEdge(1, 0, 3); // °£¼± ³Ö¾îÁÜ
+        graph.undirectedEdge(1, 0, 3); // ê°„ì„  ë„£ì–´ì¤Œ
         graph.undirectedEdge(3, 0, 2);
         graph.undirectedEdge(1, 2, 1);
         graph.undirectedEdge(2, 3, 3);
@@ -30,7 +30,7 @@ public class Main {
         for(Edge e: list){
             sum += e.w;
         }
-        System.out.println("°¡ÁßÄ¡ÇÕ "+ sum);
+        System.out.println("ê°€ì¤‘ì¹˜í•© "+ sum);
 
     }
 }

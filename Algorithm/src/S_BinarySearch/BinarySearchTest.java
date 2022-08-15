@@ -21,7 +21,7 @@ public class BinarySearchTest {
             mid = (s+e) / 2;
 
             /*
-            ±âÁØ°ª, °¡º¯°ªÀ¸·Î s, e ÄÁÆ®·Ñ
+            ê¸°ì¤€ê°’, ê°€ë³€ê°’ìœ¼ë¡œ s, e ì»¨íŠ¸ë¡¤
              */
 
             if(findNumber == arr[mid]) {

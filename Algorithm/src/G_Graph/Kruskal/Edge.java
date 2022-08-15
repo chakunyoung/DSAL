@@ -1,9 +1,9 @@
 package G_Graph.Kruskal;
 
 public class Edge implements Comparable<Edge> {
-    int u; // ¿§Áö 1
-    int v; // ¿§Áö 2
-    int w; // °¡ÁßÄ¡
+    int u; // ì—£ì§€ 1
+    int v; // ì—£ì§€ 2
+    int w; // ê°€ì¤‘ì¹˜
 
     public Edge(int u, int v, int w) {
         this.u = u;
@@ -14,7 +14,7 @@ public class Edge implements Comparable<Edge> {
     @Override
     public int compareTo(Edge o) {
         return w - o.w;
-    } // Å©·ç½ºÄ®Àº °¡ÁßÄ¡ Á¤·Ä ÈÄ »ç¿ë
+    } // í¬ë£¨ìŠ¤ì¹¼ì€ ê°€ì¤‘ì¹˜ ì •ë ¬ í›„ ì‚¬ìš©
 
     @Override
     public String toString() {

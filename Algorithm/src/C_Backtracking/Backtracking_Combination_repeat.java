@@ -11,7 +11,7 @@ public class Backtracking_Combination_repeat {
         M = basicArr.length;
         BT(0, 0);
     }
-    public static void BT(int k, int idx){ // ÇöÀç ÀÚ¸®¼ö, ÁÖ¾îÁø idx
+    public static void BT(int k, int idx){ // í˜„ì¬ ìë¦¬ìˆ˜, ì£¼ì–´ì§„ idx
         if(2 == k){
             for(int j = 0; j < 2; j++) {
                 System.out.print(arr[j] + " ");
@@ -20,11 +20,11 @@ public class Backtracking_Combination_repeat {
             return;
         }
 
-        // ¾Õº¸´Ù ÀÛÀº ¼ö°¡ ³ª¿Ã ¼ö ¾ø°Ô ¼³Á¤
+        // ì•ë³´ë‹¤ ì‘ì€ ìˆ˜ê°€ ë‚˜ì˜¬ ìˆ˜ ì—†ê²Œ ì„¤ì •
         for(int i = idx; i < M; i++){
             arr[k] = basicArr[i];
-            BT(k + 1, i ); // ÀÚ±â ÀÚ½ÅÀ» Æ÷ÇÔÇÑ ¹üÀ§·Î Àç±Í½ÃÅ´
-                            // ÇÏÁö¸¸ ±× ÀÌÀü [e, e, <=(ÀÚ½Å) ] À¸·Î µ¹¾Æ°¥ °æ¿ì´Â ¾ø¾Ú.
+            BT(k + 1, i ); // ìê¸° ìì‹ ì„ í¬í•¨í•œ ë²”ìœ„ë¡œ ì¬ê·€ì‹œí‚´
+                            // í•˜ì§€ë§Œ ê·¸ ì´ì „ [e, e, <=(ìì‹ ) ] ìœ¼ë¡œ ëŒì•„ê°ˆ ê²½ìš°ëŠ” ì—†ì•°.
         }
     }
 }
